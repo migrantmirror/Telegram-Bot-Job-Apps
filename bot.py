@@ -230,8 +230,9 @@ async def cancel_reminder(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def main():
     await init_db()
 
-    # Start scheduler inside the async event loop
+    print("Before scheduler.start()")  # <-- DEBUG PRINT
     scheduler.start()
+    print("After scheduler.start()")   # <-- DEBUG PRINT
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
