@@ -34,7 +34,6 @@ jobstores = {
     'default': SQLAlchemyJobStore(url=DB_URL)
 }
 scheduler = AsyncIOScheduler(jobstores=jobstores)
-scheduler.start()
 
 user_cv_files = {}
 
@@ -230,6 +229,9 @@ async def cancel_reminder(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def main():
     await init_db()
+
+    # Start scheduler inside the async event loop
+    scheduler.start()
 
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
