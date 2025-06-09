@@ -1,0 +1,6 @@
+python-telegram-bot==20.3
+sendgrid
+apscheduler
+sqlalchemy
+aiosqlite
+python-dotenv
